@@ -1,0 +1,374 @@
+[
+  {
+    "id": "1",
+    "name": "Baby Yoda",
+    "description": "The Child from The Mandalorian",
+    "price": 12.99,
+    "rating": 4.8,
+    "images": [
+      "https://m.media-amazon.com/images/I/61MtDk+fPnL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71GcIODKPEL._AC_SY879_.jpg",
+      "https://m.media-amazon.com/images/I/51TFevmKXFL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Iron Man",
+    "description": "Tony Stark in his Iron Man suit",
+    "price": 14.99,
+    "rating": 4.7,
+    "images": [
+      "https://m.media-amazon.com/images/I/81CnvOG8+YL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61iUh2CPmUL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Spider-Man",
+    "description": "Spider-Man in his classic suit",
+    "price": 13.99,
+    "rating": 4.5,
+    "images": [
+      "https://m.media-amazon.com/images/I/71gKFh3K-PL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51Z4lq5cpgL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71wUgARW2GL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Darth Vader",
+    "description": "The iconic Sith Lord from Star Wars",
+    "price": 15.99,
+    "rating": 4.9,
+    "images": [
+      "https://m.media-amazon.com/images/I/61s6vlqz-LL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51hAjZ4YDKL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61SclpHLFNL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Harry Potter",
+    "description": "The Boy Who Lived",
+    "price": 12.99,
+    "rating": 4.6,
+    "images": [
+      "https://m.media-amazon.com/images/I/61+MrOrNfvL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51qMQETPe-L._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Hermione Granger",
+    "description": "Hermione from the Harry Potter series",
+    "price": 13.49,
+    "rating": 4.7,
+    "images": [
+      "https://m.media-amazon.com/images/I/81IHhIftaRL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/7151a9s5x3L._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Batman",
+    "description": "The Dark Knight of Gotham City",
+    "price": 14.49,
+    "rating": 4.8,
+    "images": [
+      "https://m.media-amazon.com/images/I/71F6G1UE0-L._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71G4GprwHBL._AC_SY879_.jpg",
+      "https://m.media-amazon.com/images/I/61m1LIjJtfL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Wonder Woman",
+    "description": "The Amazonian princess",
+    "price": 13.99,
+    "rating": 4.6,
+    "images": [
+      "https://m.media-amazon.com/images/I/71w9LqfSaGL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61lWnpUCOEL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Thor",
+    "description": "The God of Thunder from Norse mythology",
+    "price": 14.99,
+    "rating": 4.7,
+    "images": [
+      "https://m.media-amazon.com/images/I/81WZ1P9v+RL._AC_SY300_SX300_.jpg",
+      "https://m.media-amazon.com/images/I/71QrrM76q9L._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Captain America",
+    "description": "The Star-Spangled Avenger",
+    "price": 13.49,
+    "rating": 4.5,
+    "images": [
+      "https://m.media-amazon.com/images/I/71audGnegpL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51f2CL3ffYL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Groot",
+    "description": "The sentient tree from Guardians of the Galaxy",
+    "price": 12.99,
+    "rating": 4.9,
+    "images": [
+      "https://m.media-amazon.com/images/I/71792hc8JiL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/41hGkVCC-QL._AC_.jpg"
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Deadpool",
+    "description": "The Merc with a Mouth",
+    "price": 14.99,
+    "rating": 4.7,
+    "images": [
+      "https://m.media-amazon.com/images/I/71KaIk8OQIL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61csG1LQ0DL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Joker",
+    "description": "The Clown Prince of Crime",
+    "price": 13.99,
+    "rating": 4.6,
+    "images": [
+      "https://m.media-amazon.com/images/I/51ccWyK1L2L._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81WrmY3q5yL._AC_SY879_.jpg",
+      "https://m.media-amazon.com/images/I/41K1yp9DayL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Pikachu",
+    "description": "The iconic Pokémon",
+    "price": 12.99,
+    "rating": 4.8,
+    "images": [
+      "https://m.media-amazon.com/images/I/712FRPi-TNL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51wSj4QvO7L._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Sonic the Hedgehog",
+    "description": "The speedy blue hedgehog",
+    "price": 12.99,
+    "rating": 4.5,
+    "images": [
+      "https://m.media-amazon.com/images/I/71wn+nORoTL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61MhKh0PmQL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "16",
+    "name": "Frodo Baggins",
+    "description": "The Ring-bearer from The Lord of the Rings",
+    "price": 13.99,
+    "rating": 4.6,
+    "images": [
+      "https://m.media-amazon.com/images/I/51G7ycurGnL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51fLeOkS9xL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "17",
+    "name": "Legolas",
+    "description": "The Elven archer from The Lord of the Rings",
+    "price": 14.99,
+    "rating": 4.7,
+    "images": [
+      "https://m.media-amazon.com/images/I/61-9hCojYUL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51Lw+cj+umL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "18",
+    "name": "Thanos",
+    "description": "The Mad Titan from the Marvel universe",
+    "price": 15.99,
+    "rating": 4.8,
+    "images": [
+      "https://m.media-amazon.com/images/I/81PVOVIMFZL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/717s28zWu4L._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "19",
+    "name": "Dobby",
+    "description": "The House-Elf from Harry Potter",
+    "price": 12.99,
+    "rating": 4.6,
+    "images": [
+      "https://m.media-amazon.com/images/I/71uJywYLX5L._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61vorPMpaBL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/513o0c4APtL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "20",
+    "name": "Ron Weasley",
+    "description": "Harry Potter’s best friend",
+    "price": 13.49,
+    "rating": 4.5,
+    "images": [
+      "https://m.media-amazon.com/images/I/81FwWwneJAL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71I-vfFqQQS._AC_SY879_.jpg",
+      "https://m.media-amazon.com/images/I/61U3F8-L-2L._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "21",
+    "name": "Rick Sanchez",
+    "description": "The eccentric scientist from Rick and Morty",
+    "price": 12.99,
+    "rating": 4.7,
+    "images": [
+      "https://m.media-amazon.com/images/I/6148E-IdCsL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/41iAkkXx-ZL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "22",
+    "name": "Morty Smith",
+    "description": "Rick’s grandson from Rick and Morty",
+    "price": 13.99,
+    "rating": 4.4,
+    "images": [
+      "https://m.media-amazon.com/images/I/81c8yxUU6OL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71qLIOPxAHL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "23",
+    "name": "Gandalf",
+    "description": "The Wizard from The Lord of the Rings",
+    "price": 14.49,
+    "rating": 4.9,
+    "images": [
+      "https://m.media-amazon.com/images/I/51zvdt9RIwL._AC_.jpg",
+      "https://m.media-amazon.com/images/I/61lBADJ-6fL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "24",
+    "name": "Boba Fett",
+    "description": "The infamous bounty hunter from Star Wars",
+    "price": 15.49,
+    "rating": 4.6,
+    "images": [
+      "https://m.media-amazon.com/images/I/71t6uDfRRvL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61a9cHnZBpL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "25",
+    "name": "Naruto Uzumaki",
+    "description": "The ninja from Naruto",
+    "price": 13.49,
+    "rating": 4.8,
+    "images": [
+      "https://m.media-amazon.com/images/I/71rLYGdaB1L._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/41tVeiCKSHL._AC_SX679_.jpg"
+    ]
+  },
+  {
+  "id": "18",
+  "name": "Thanos",
+  "description": "The Mad Titan from the Marvel universe",
+  "price": 15.99,
+  "rating": 4.8,
+  "images": [
+    "https://m.media-amazon.com/images/I/81PVOVIMFZL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/717s28zWu4L._AC_SX679_.jpg"
+  ]
+},
+{
+  "id": "19",
+  "name": "Dobby",
+  "description": "The House-Elf from Harry Potter",
+  "price": 12.99,
+  "rating": 4.6,
+  "images": [
+    "https://m.media-amazon.com/images/I/71uJywYLX5L._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/61vorPMpaBL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/513o0c4APtL._AC_SX679_.jpg"
+  ]
+},
+{
+  "id": "20",
+  "name": "Ron Weasley",
+  "description": "Harry Potter’s best friend",
+  "price": 13.49,
+  "rating": 4.5,
+  "images": [
+    "https://m.media-amazon.com/images/I/81FwWwneJAL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/71I-vfFqQQS._AC_SY879_.jpg",
+    "https://m.media-amazon.com/images/I/61U3F8-L-2L._AC_SX679_.jpg"
+  ]
+},
+{
+  "id": "21",
+  "name": "Rick Sanchez",
+  "description": "The eccentric scientist from Rick and Morty",
+  "price": 12.99,
+  "rating": 4.7,
+  "images": [
+    "https://m.media-amazon.com/images/I/6148E-IdCsL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/41iAkkXx-ZL._AC_SX679_.jpg"
+  ]
+},
+{
+  "id": "22",
+  "name": "Morty Smith",
+  "description": "Rick’s grandson from Rick and Morty",
+  "price": 13.99,
+  "rating": 4.4,
+  "images": [
+    "https://m.media-amazon.com/images/I/81c8yxUU6OL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/71qLIOPxAHL._AC_SX679_.jpg"
+  ]
+},
+{
+  "id": "23",
+  "name": "Gandalf",
+  "description": "The Wizard from The Lord of the Rings",
+  "price": 14.49,
+  "rating": 4.9,
+  "images": [
+    "https://m.media-amazon.com/images/I/51zvdt9RIwL._AC_.jpg",
+    "https://m.media-amazon.com/images/I/61lBADJ-6fL._AC_SX679_.jpg"
+  ]
+},
+{
+  "id": "24",
+  "name": "Boba Fett",
+  "description": "The infamous bounty hunter from Star Wars",
+  "price": 15.49,
+  "rating": 4.6,
+  "images": [
+    "https://m.media-amazon.com/images/I/71t6uDfRRvL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/61a9cHnZBpL._AC_SX679_.jpg"
+  ]
+},
+{
+  "id": "25",
+  "name": "Naruto Uzumaki",
+  "description": "The ninja from Naruto",
+  "price": 13.49,
+  "rating": 4.8,
+  "images": [
+    "https://m.media-amazon.com/images/I/71rLYGdaB1L._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/41tVeiCKSHL._AC_SX679_.jpg"
+  ]
+}
+]
