@@ -7,9 +7,10 @@ export function addToCart(item) {
   };
 }
 
-export function changeQuantity(item) {
+export function changeQuantity(item, actionType) {
   return {
     type: CHANGE_QUANTITY,
-    item
+    item,
+    actionType,
   };
 }

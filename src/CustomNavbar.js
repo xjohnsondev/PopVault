@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from "react-redux";
 import './CustomNavbar.css';
-import { addToCart } from './actions';
+import { addToCart, changeQuantity } from './actions';
 
 const CustomNavbar = ({ setShow, show }) => {
     const items = useSelector(st => st.items);
@@ -14,14 +14,12 @@ const CustomNavbar = ({ setShow, show }) => {
     console.log(items)
 
     function handleQtyChange(item, action) {
-                if (action == 'increment') {
-                    
-                }
-                else if (action == 'decrement') {
-                    
-                }
-            
-            console.log(items)
+        if (action == 'increment') {
+            dispatch(changeQuantity(item, action))
+        }
+        else if (action == 'decrement') {
+            dispatch(changeQuantity(item, action))
+        }
     }
 
     return (
@@ -56,9 +54,9 @@ const CustomNavbar = ({ setShow, show }) => {
                                                 <p>${item.price}</p>
                                             </div>
                                             <div className='item-qty-box'>
-                                                <FontAwesomeIcon icon={faCircleMinus} onClick={() => handleQtyChange(item.id, 'decrement')} className='decrement-btn'  />
-                                                <p>&nbsp; {item.quantity} &nbsp;</p>                                                
-                                                <FontAwesomeIcon icon={faCirclePlus} onClick={() => handleQtyChange(item.id, 'increment')} className='increment-btn' />
+                                                <FontAwesomeIcon icon={faCircleMinus} onClick={() => handleQtyChange(item, 'decrement')} className='decrement-btn' />
+                                                <p>&nbsp; {item.quantity} &nbsp;</p>
+                                                <FontAwesomeIcon icon={faCirclePlus} onClick={() => handleQtyChange(item, 'increment')} className='increment-btn' />
 
                                             </div>
                                         </div>

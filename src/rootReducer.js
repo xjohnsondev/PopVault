@@ -19,6 +19,7 @@ function rootReducer(state = INITIAL_STATE, action) {
                         : item
                 );
             } else {
+                // Create new object of new item being added to cart
                 const newItem = {
                     name: action.item.name,
                     id: itemId,
@@ -36,7 +37,32 @@ function rootReducer(state = INITIAL_STATE, action) {
                 items: updatedItems,
             };
         case CHANGE_QUANTITY:
-            return
+            const id = action.item.id;
+            const selectedItemIndex = state.items.findIndex(item => item.id === id);
+            
+            let updatedQtyItems;
+            if (selectedItemIndex >= 0) {
+                updatedQtyItems = state.items.map((item, index) =>
+                    index === selectedItemIndex
+                        ? { 
+                            ...item, 
+                            quantity: action.actionType === 'increment' 
+                            ? item.quantity + 1 
+                            : Math.max(1, item.quantity - 1)
+                            }
+                        : item
+                );
+            } else {
+                updatedQtyItems = [...state.items];
+            }
+
+            // Update sessionStorage
+            sessionStorage.setItem("cartItems", JSON.stringify(updatedQtyItems));
+
+            return {
+                ...state,
+                items: updatedQtyItems,
+            };
         default:
             return state;
     }

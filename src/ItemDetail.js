@@ -62,7 +62,7 @@ const ItemDetail = ({ setShow, show }) => {
             <Container className='price-cont'>
                 <Row>
                     <Col>
-                        <p className='detail-description'>{item.description}</p>
+                        <p className='detail-description'>{item.description.toUpperCase()}</p>
                         <p className='detail-price'>${item.price}</p>
                         <p>Rating: {item.rating}</p>
                     </Col>
