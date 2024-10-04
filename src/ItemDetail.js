@@ -35,6 +35,7 @@ const ItemDetail = ({ setShow, show }) => {
     }, [items, item]);
 
     function addItem() {
+        // add item to cart
         if (!item) return;
 
         if (btnCartRef.current) {

@@ -12,9 +12,31 @@
 }
 
 .item-price-row {
+    position: relative;
     display: flex;
-    justify-content: space-between;
     height: 25px;
+}
+
+.item-name {
+
+}
+
+.item-name:hover {
+    text-decoration: underline;
+}
+
+.remove-btn {
+    position: relative;
+    margin: 12px 0 0 8px;
+}
+
+.remove-btn:hover {
+    cursor: pointer;
+}
+
+.price {
+    position: absolute;
+    right: 0;
 }
 
 .item-box {
@@ -27,10 +49,7 @@
     justify-content: flex-end;
     gap: 10px;
     margin-top: 5px;
-}
-
-.item-qty-box p {
-    /* margin-top: 0px; */
+    position: relative;
 }
 
 .decrement-btn,
@@ -47,7 +66,7 @@
 
 .decrement-btn:hover,
 .increment-btn:hover {
-    color: #e0e0e0; /* hover effect */
+    color: #e0e0e0;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -55,4 +74,29 @@
 .decrement-btn:active,
 .increment-btn:active {
     color: green;
+}
+
+.checkout-btn {
+    background-color: #00b900!important;
+    border-color: #00b900 !important;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.checkout-btn:hover {
+    background-color: #9A8B72;
+    border-color: rgb(251, 242, 213);
+}
+
+.checkout-btn:active {
+    color: #00b900 !important;
+    background-color: white !important;
+    border-color: white !important;
+    transform: scale(0.98);
+}
+
+.total-cont {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
 }

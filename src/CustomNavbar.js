@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Container, Navbar, Offcanvas, Button, ListGroup, Row, InputGroup, FormControl } from 'react-bootstrap';
+import { Container, Navbar, Offcanvas, Button, ListGroup, Nav, Modal } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faCircleMinus, faCirclePlus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from "react-redux";
 import './CustomNavbar.css';
 import { addToCart, changeQuantity } from './actions';
+import Pagination from 'react-bootstrap/Pagination';
+
 
 const CustomNavbar = ({ setShow, show }) => {
+    const [showModal, setShowModal] = useState(false);
+    const [itemToRemove, setItemToRemove] = useState(null);
+
     const items = useSelector(st => st.items);
 
     const dispatch = useDispatch();
@@ -22,10 +27,30 @@ const CustomNavbar = ({ setShow, show }) => {
         }
     }
 
+    function handleRemoveItem(item) {
+        setItemToRemove(item);
+        setShowModal(true);
+    }
+
+    function confirmRemoveItem() {
+        // Logic to remove item
+        console.log(`Removing item: ${itemToRemove.name}`);
+        setShowModal(false);
+    }
+
+    function calculateTotal() {
+        //Calculate total price for all items in cart
+        let total = 0;
+        items.forEach(item => {
+            total += (item.price * item.quantity);
+        })
+        return total.toFixed(2);
+    }
+
     return (
         <Navbar expand="lg" className='navbar' sticky='top'>
             <Container>
-                <Navbar.Brand href="#home">PopVault</Navbar.Brand>
+                <Navbar.Brand href="/">PopVault</Navbar.Brand>
                 {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
 
                 <Button
@@ -50,14 +75,19 @@ const CustomNavbar = ({ setShow, show }) => {
                                     <ListGroup.Item key={item.id} className='cart-item'>
                                         <div className='item-box'>
                                             <div className='item-price-row'>
-                                                <p>{item.name}</p>
-                                                <p>${item.price}</p>
+                                                <Nav>
+                                                    <Nav.Link href={`/item/${item.id - 1}`}>
+                                                        <p className='item-name'>{item.name}</p>
+                                                    </Nav.Link>
+                                                </Nav>
+                                                <FontAwesomeIcon icon={faTrashCan} onClick={() => handleRemoveItem(item)} className='remove-btn' />
+
+                                                <p className='price'>${item.price}</p>
                                             </div>
                                             <div className='item-qty-box'>
                                                 <FontAwesomeIcon icon={faCircleMinus} onClick={() => handleQtyChange(item, 'decrement')} className='decrement-btn' />
                                                 <p>&nbsp; {item.quantity} &nbsp;</p>
                                                 <FontAwesomeIcon icon={faCirclePlus} onClick={() => handleQtyChange(item, 'increment')} className='increment-btn' />
-
                                             </div>
                                         </div>
                                     </ListGroup.Item>
@@ -65,10 +95,29 @@ const CustomNavbar = ({ setShow, show }) => {
                             ) : (
                                 <p>Your cart is empty.</p>
                             )}
+
+                            <Container className='total-cont'>
+                                <h4>Total:</h4>
+                                <h4>{calculateTotal()}</h4>
+                            </Container>
+
+                            {items && <Button className='checkout-btn'>Checkout</Button>}
                         </ListGroup>
                     </Offcanvas.Body>
                 </Offcanvas>
 
+                <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Confirm Removal</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <h4>Are you sure you want to remove "{itemToRemove?.name}" from your cart?</h4>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={() => setShowModal(false)}>Cancel</Button>
+                        <Button variant="danger" onClick={confirmRemoveItem}>Remove</Button>
+                    </Modal.Footer>
+                </Modal>
 
             </Container>
         </Navbar>
