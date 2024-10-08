@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import Image from 'react-bootstrap/Image';
+import { Card, Image } from 'react-bootstrap';
 import './ItemCard.css';
 
 export const ItemCard = ({ item }) => {
@@ -11,7 +10,6 @@ export const ItemCard = ({ item }) => {
         navigate(`/item/${pointer}`)
     }
 
-    console.log(item)
     return (
             <Card className='item-card' onClick={handleCardClick}>
                 <Card.Body className='image-container'>

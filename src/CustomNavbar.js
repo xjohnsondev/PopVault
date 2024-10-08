@@ -1,19 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Container, Navbar, Offcanvas, Button, ListGroup, Nav, Modal } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faCircleMinus, faCirclePlus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from "react-redux";
+import { changeQuantity, removeItem } from './actions';
+import { useNavigate } from 'react-router-dom';
 import './CustomNavbar.css';
-import { addToCart, changeQuantity } from './actions';
-import Pagination from 'react-bootstrap/Pagination';
 
 
-const CustomNavbar = ({ setShow, show }) => {
+const CustomNavbar = ({ setShow, show, setShowAlert }) => {
     const [showModal, setShowModal] = useState(false);
     const [itemToRemove, setItemToRemove] = useState(null);
-
+    const navigate = useNavigate();
     const items = useSelector(st => st.items);
-
     const dispatch = useDispatch();
 
     console.log(items)
@@ -35,7 +34,20 @@ const CustomNavbar = ({ setShow, show }) => {
     function confirmRemoveItem() {
         // Logic to remove item
         console.log(`Removing item: ${itemToRemove.name}`);
+        dispatch(removeItem(itemToRemove));
         setShowModal(false);
+        setShowAlert({
+            status: true,
+            message: "Item removed"
+        });
+        
+        // Automatically hide the alert after a few seconds
+        setTimeout(() => {
+            setShowAlert({
+                status: false,
+                message: null,
+            });
+        }, 3000);
     }
 
     function calculateTotal() {
@@ -45,6 +57,11 @@ const CustomNavbar = ({ setShow, show }) => {
             total += (item.price * item.quantity);
         })
         return total.toFixed(2);
+    }
+
+    function goToCheckout() {
+        setShow(false);
+        navigate('/checkout');
     }
 
     return (
@@ -71,37 +88,41 @@ const CustomNavbar = ({ setShow, show }) => {
                     <Offcanvas.Body>
                         <ListGroup variant="flush">
                             {items.length > 0 ? (
-                                items.map(item => (
-                                    <ListGroup.Item key={item.id} className='cart-item'>
-                                        <div className='item-box'>
-                                            <div className='item-price-row'>
-                                                <Nav>
-                                                    <Nav.Link href={`/item/${item.id - 1}`}>
-                                                        <p className='item-name'>{item.name}</p>
-                                                    </Nav.Link>
-                                                </Nav>
-                                                <FontAwesomeIcon icon={faTrashCan} onClick={() => handleRemoveItem(item)} className='remove-btn' />
+                                <>
+                                    {items.map(item => (
+                                        <ListGroup.Item key={item.id} className='cart-item'>
+                                            <div className='item-box'>
+                                                <div className='item-price-row'>
+                                                    <Nav>
+                                                        <Nav.Link href={`/item/${item.id - 1}`}>
+                                                            <p className='item-name'>{item.name}</p>
+                                                        </Nav.Link>
+                                                    </Nav>
+                                                    <FontAwesomeIcon icon={faTrashCan} onClick={() => handleRemoveItem(item)} className='remove-btn' />
 
-                                                <p className='price'>${item.price}</p>
+                                                    <p className='price'>${item.price}</p>
+                                                </div>
+                                                <div className='item-qty-box'>
+                                                    <FontAwesomeIcon icon={faCircleMinus} onClick={() => handleQtyChange(item, 'decrement')} className='decrement-btn' />
+                                                    <p>&nbsp; {item.quantity} &nbsp;</p>
+                                                    <FontAwesomeIcon icon={faCirclePlus} onClick={() => handleQtyChange(item, 'increment')} className='increment-btn' />
+                                                </div>
                                             </div>
-                                            <div className='item-qty-box'>
-                                                <FontAwesomeIcon icon={faCircleMinus} onClick={() => handleQtyChange(item, 'decrement')} className='decrement-btn' />
-                                                <p>&nbsp; {item.quantity} &nbsp;</p>
-                                                <FontAwesomeIcon icon={faCirclePlus} onClick={() => handleQtyChange(item, 'increment')} className='increment-btn' />
-                                            </div>
-                                        </div>
-                                    </ListGroup.Item>
-                                ))
+                                        </ListGroup.Item>
+                                    ))}
+
+                                    <Container className='total-cont'>
+                                        <h4>Total:</h4>
+                                        <h4>{calculateTotal()}</h4>
+                                    </Container>
+
+                                    <Button className='checkout-btn' onClick={() => goToCheckout()}>Checkout</Button>
+                                </>
                             ) : (
                                 <p>Your cart is empty.</p>
                             )}
 
-                            <Container className='total-cont'>
-                                <h4>Total:</h4>
-                                <h4>{calculateTotal()}</h4>
-                            </Container>
 
-                            {items && <Button className='checkout-btn'>Checkout</Button>}
                         </ListGroup>
                     </Offcanvas.Body>
                 </Offcanvas>
@@ -118,6 +139,7 @@ const CustomNavbar = ({ setShow, show }) => {
                         <Button variant="danger" onClick={confirmRemoveItem}>Remove</Button>
                     </Modal.Footer>
                 </Modal>
+
 
             </Container>
         </Navbar>

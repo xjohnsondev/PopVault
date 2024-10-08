@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CHANGE_QUANTITY } from "./actionTypes";
+import { ADD_TO_CART, CHANGE_QUANTITY, REMOVE_ITEM } from "./actionTypes";
 
 const INITIAL_STATE = {
     // Make sure `items` is always initialized as an array
@@ -21,10 +21,12 @@ function rootReducer(state = INITIAL_STATE, action) {
             } else {
                 // Create new object of new item being added to cart
                 const newItem = {
-                    name: action.item.name,
                     id: itemId,
+                    name: action.item.name,
+                    description: action.item.description,
                     price: action.item.price,
                     quantity: 1,
+                    image: action.item.images[0],
                 }
                 updatedItems = [...state.items, newItem];
             }
@@ -39,17 +41,17 @@ function rootReducer(state = INITIAL_STATE, action) {
         case CHANGE_QUANTITY:
             const id = action.item.id;
             const selectedItemIndex = state.items.findIndex(item => item.id === id);
-            
+
             let updatedQtyItems;
             if (selectedItemIndex >= 0) {
                 updatedQtyItems = state.items.map((item, index) =>
                     index === selectedItemIndex
-                        ? { 
-                            ...item, 
-                            quantity: action.actionType === 'increment' 
-                            ? item.quantity + 1 
-                            : Math.max(1, item.quantity - 1)
-                            }
+                        ? {
+                            ...item,
+                            quantity: action.actionType === 'increment'
+                                ? item.quantity + 1
+                                : Math.max(1, item.quantity - 1)
+                        }
                         : item
                 );
             } else {
@@ -62,6 +64,17 @@ function rootReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 items: updatedQtyItems,
+            };
+        case REMOVE_ITEM:
+            const removeId = action.item.id;
+            const updatedRemoveItems = state.items.filter(item => item.id !== removeId);
+
+            // Update sessionStorage
+            sessionStorage.setItem("cartItems", JSON.stringify(updatedRemoveItems));
+
+            return {
+                ...state,
+                items: updatedRemoveItems
             };
         default:
             return state;

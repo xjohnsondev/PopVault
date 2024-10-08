@@ -1,10 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './ItemDetail.css';
-import Container from 'react-bootstrap/Container';
-import Carousel from 'react-bootstrap/Carousel';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import $ from 'jquery';
+import {Container, Carousel, Row, Col} from 'react-bootstrap';
 import { faShoppingBag, faLock } from '@fortawesome/free-solid-svg-icons';
 import data from './data.json';
 import { useParams } from 'react-router-dom';
@@ -12,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "./actions";
 
-const ItemDetail = ({ setShow, show }) => {
+const ItemDetail = ({ setShow, show, setShowAlert }) => {
     const { id } = useParams();
     const btnCartRef = useRef(null);
 
