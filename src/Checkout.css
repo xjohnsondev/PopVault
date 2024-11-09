@@ -1,10 +1,16 @@
+.checkout-header {
+    margin: 25px;
+}
+
 .checkout-table {
     position: relative;
     width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-.header th {
-    background-color: #f8f9fa !important;
+.checkout-table th {
+    background-color: #e4d2b3 !important;
     font-weight: bold !important;
     color: #333 !important;
 }
@@ -20,7 +26,7 @@
 }
 
 .checkout-img {
-    height: 150px;
+    height: 80px;
     width: auto;
     margin: 25px 0;
 }
@@ -32,6 +38,28 @@
     justify-content: flex-start;
     width: 100%;
 }
+
+.checkout-item-title {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.checkout-item-title p {
+    font-size: 18px;
+}
+
+.checkout-trashcan {
+    margin-top: 10px;
+}
+
+.checkout-trashcan:focus,
+.checkout-trashcan:active,
+.checkout-trashcan:focus-visible {
+    outline: none;
+    border: none;
+}
+
 
 .checkout-content p {
     margin: 10px 0; 

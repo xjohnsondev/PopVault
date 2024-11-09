@@ -15,8 +15,6 @@ const CustomNavbar = ({ setShow, show, setShowAlert }) => {
     const items = useSelector(st => st.items);
     const dispatch = useDispatch();
 
-    console.log(items)
-
     function handleQtyChange(item, action) {
         if (action == 'increment') {
             dispatch(changeQuantity(item, action))

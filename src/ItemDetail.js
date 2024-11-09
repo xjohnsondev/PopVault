@@ -86,7 +86,7 @@ const ItemDetail = ({ setShow, show, setShowAlert }) => {
                                     <span>View Cart</span>
                                 </span>
                             </a>
-                            <a href="#" className="checkout">
+                            <a href="/checkout" className="checkout">
                                 <span>
                                     <FontAwesomeIcon icon={faLock} className="fa fa-lock" />
                                     <span>Checkout</span>
