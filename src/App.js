@@ -5,6 +5,7 @@ import ItemsDisplay from './ItemsDisplay';
 import ItemDetail from './ItemDetail';
 import CustomNavbar from './CustomNavbar';
 import Checkout from './Checkout';
+import NotFound from './NotFound';
 
 function App() {
   const [show, setShow] = useState(false);
@@ -26,6 +27,10 @@ function App() {
 
         {/* Route to display checkout page */}
         <Route path="/checkout" element={<Checkout showAlert={showAlert} setShowAlert={setShowAlert}/>} />
+     
+        {/* Route to 404 error page */}
+        <Route path="*" element={<NotFound />} />
+
       </Routes>
     </Router>
     </div>
