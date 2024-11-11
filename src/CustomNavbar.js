@@ -5,6 +5,7 @@ import { faCartShopping, faCircleMinus, faCirclePlus, faTrashCan } from '@fortaw
 import { useSelector, useDispatch } from "react-redux";
 import { changeQuantity, removeItem } from './actions';
 import { useNavigate } from 'react-router-dom';
+import UseCalculateTotal from './hooks/UseCalculateTotal';
 import './CustomNavbar.css';
 
 
@@ -46,15 +47,6 @@ const CustomNavbar = ({ setShow, show, setShowAlert }) => {
                 message: null,
             });
         }, 3000);
-    }
-
-    function calculateTotal() {
-        //Calculate total price for all items in cart
-        let total = 0;
-        items.forEach(item => {
-            total += (item.price * item.quantity);
-        })
-        return total.toFixed(2);
     }
 
     function goToCheckout() {
@@ -111,7 +103,7 @@ const CustomNavbar = ({ setShow, show, setShowAlert }) => {
 
                                     <Container className='total-cont'>
                                         <h4>Total:</h4>
-                                        <h4>{calculateTotal()}</h4>
+                                        <h4>{UseCalculateTotal(items)}</h4>
                                     </Container>
 
                                     <Button className='checkout-btn' onClick={() => goToCheckout()}>Checkout</Button>

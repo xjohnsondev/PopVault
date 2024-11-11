@@ -66,6 +66,41 @@
     position: relative;
 }
 
+.go-to-top-button {
+    position: fixed;
+    top: 50%;
+    right: -33px;
+    transform: translateY(-50%);
+    z-index: 1000;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out; /* Apply animation */
+    transform: rotate(-90deg);
+    background-color: #9A8B72 !important;
+    opacity: 0.8;
+    border-color: #333 !important;
+}
+
+.go-to-top-button:hover {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    0% {
+        right: -50px; /* Start position outside of the window */
+        opacity: 0; /* Start with 0 opacity */
+    }
+    100% {
+        right: -35px; /* End position inside the window */
+        opacity: 0.8; /* Fade in */
+    }
+}
+
+.checkout-footer {
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .table-item {

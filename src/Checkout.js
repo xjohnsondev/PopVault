@@ -1,20 +1,34 @@
 import './Checkout.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faCircleMinus, faCirclePlus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem } from './actions';
-
 import { Container, Table, Image, Button, Modal } from 'react-bootstrap';
+import UseCalculateTotal from './hooks/UseCalculateTotal';
 
 const Checkout = ({ setShowAlert }) => {
     const [showModal, setShowModal] = useState(false);
     const [itemToRemove, setItemToRemove] = useState(null);
+    const [showGoToTop, setShowGoToTop] = useState(false);
 
     const items = useSelector(st => st.items);
     console.log(items)
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Show button when scrolled down
+            setShowGoToTop(window.scrollY > 250);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     function handleRemoveItem(item) {
         setItemToRemove(item);
@@ -30,7 +44,7 @@ const Checkout = ({ setShowAlert }) => {
             status: true,
             message: "Item removed"
         });
-        
+
         // Automatically hide the alert after a few seconds
         setTimeout(() => {
             setShowAlert({
@@ -70,11 +84,11 @@ const Checkout = ({ setShowAlert }) => {
                                                 variant='none'
                                                 className='button ms-auto checkout-trashcan'
                                                 onClick={() => handleRemoveItem(item)}
-                                                >
+                                            >
                                                 <FontAwesomeIcon icon={faTrashCan} className="fa" />
                                             </Button>
                                         </div>
-                                        <p style={{ margin: '20px 0 0 15px', fontSize: '14px' }}>{item.description.toUpperCase()}</p>
+                                        <p style={{ margin: '5px 0 0 15px', fontSize: '14px' }}>{item.description.toUpperCase()}</p>
                                     </div>
                                 </div>
                             </td>
@@ -84,22 +98,39 @@ const Checkout = ({ setShowAlert }) => {
                     ))}
                 </tbody>
                 <tfoot>
-
+                    <tr>
+                        <td colSpan="3" style={{ textAlign: 'right' }}>
+                            <div className="checkout-footer">
+                                <h5>Total: ${UseCalculateTotal(items)}</h5>
+                                <Button variant="success" >Confirm Checkout</Button>
+                                <p style={{ marginTop: '5px' }}>Visa ****1234</p>
+                            </div>
+                        </td>
+                    </tr>
                 </tfoot>
             </Table>
 
+            {showGoToTop && (
+                <Button
+                    onClick={scrollToTop}
+                    className="go-to-top-button"
+                >
+                    Go to Top
+                </Button>
+            )}
+
             <Modal show={showModal} onHide={() => setShowModal(false)} centered>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Confirm Removal</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <h4>Are you sure you want to remove "{itemToRemove?.name}" from your cart?</h4>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={() => setShowModal(false)}>Cancel</Button>
-                        <Button variant="danger" onClick={confirmRemoveItem}>Remove</Button>
-                    </Modal.Footer>
-                </Modal>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirm Removal</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h4>Are you sure you want to remove "{itemToRemove?.name}" from your cart?</h4>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowModal(false)}>Cancel</Button>
+                    <Button variant="danger" onClick={confirmRemoveItem}>Remove</Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
     )
 };
