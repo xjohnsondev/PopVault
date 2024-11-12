@@ -5,7 +5,6 @@ import { faCartShopping, faCircleMinus, faCirclePlus, faTrashCan } from '@fortaw
 import { useSelector, useDispatch } from "react-redux";
 import { changeQuantity, removeItem } from './actions';
 import { useNavigate } from 'react-router-dom';
-import UseCalculateTotal from './hooks/UseCalculateTotal';
 import './CustomNavbar.css';
 
 
@@ -32,7 +31,6 @@ const CustomNavbar = ({ setShow, show, setShowAlert }) => {
 
     function confirmRemoveItem() {
         // Logic to remove item
-        console.log(`Removing item: ${itemToRemove.name}`);
         dispatch(removeItem(itemToRemove));
         setShowModal(false);
         setShowAlert({
@@ -47,6 +45,21 @@ const CustomNavbar = ({ setShow, show, setShowAlert }) => {
                 message: null,
             });
         }, 3000);
+    }
+
+    function calculateTotal(items) {
+        if (!items || items.length === 0) {
+            // if cart is empty, skip function
+            return;
+        }
+
+        //Calculate total price for all items in cart
+        let agg = 0;
+        items.forEach(item => {
+            agg += (item.price * item.quantity);
+        });
+        // ensures the total is always displayed as a string with 2 decimal places
+        return agg;
     }
 
     function goToCheckout() {
@@ -103,7 +116,7 @@ const CustomNavbar = ({ setShow, show, setShowAlert }) => {
 
                                     <Container className='total-cont'>
                                         <h4>Total:</h4>
-                                        <h4>{UseCalculateTotal(items)}</h4>
+                                        <h4>${calculateTotal(items)}</h4>
                                     </Container>
 
                                     <Button className='checkout-btn' onClick={() => goToCheckout()}>Checkout</Button>

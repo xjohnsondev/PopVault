@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CHANGE_QUANTITY, REMOVE_ITEM } from "./actionTypes";
+import { ADD_TO_CART, CHANGE_QUANTITY, REMOVE_ITEM, CLEAR_CART } from "./actionTypes";
 
 export function addToCart(item) {
   return {
@@ -20,4 +20,10 @@ export function removeItem(item) {
     type: REMOVE_ITEM,
     item
   };
+}
+
+export function clearCart() {
+  return {
+    type: CLEAR_CART
+  }
 }

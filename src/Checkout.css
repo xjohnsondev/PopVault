@@ -101,6 +101,11 @@
 .checkout-footer {
 }
 
+.alert-thanks {
+    position: fixed;
+    top: 80px;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .table-item {

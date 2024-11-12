@@ -16,12 +16,10 @@ const ItemDetail = ({ setShow, show, setShowAlert }) => {
     const dispatch = useDispatch();
 
     const item = data[id];
-    console.log(item)
-    console.log(JSON.parse(sessionStorage.getItem("cartItems")));
+  
 
     useEffect(() => {
         // Checks if item is already in cart
-        console.log('Running useEffect:', { items, item });
         if (item) {
             const matchingItems = items.filter(i => i.id === item.id);
             if (matchingItems.length > 0) {
@@ -50,8 +48,8 @@ const ItemDetail = ({ setShow, show, setShowAlert }) => {
         <Container className='detail-page'>
             <p className='carousel-name'>{item.name}</p>
             <Carousel slide={false} interval={null} data-bs-theme="dark" className='carousel'>
-                {item.images.map(img => (
-                    <Carousel.Item>
+                {item.images.map((img, index) => (
+                    <Carousel.Item key={index}>
                         <img src={img} className='carousel-image'></img>
                     </Carousel.Item>
                 ))}

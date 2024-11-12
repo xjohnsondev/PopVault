@@ -12,10 +12,9 @@ return (
             </Alert>
         }
         
-        
         <ul className='item-grid'>
-        {data.map(item => (
-            <li>
+        {data.map((item, index) => (
+            <li key={index}>
                 <ItemCard item={item} />
             </li>
         ))}

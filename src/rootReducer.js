@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CHANGE_QUANTITY, REMOVE_ITEM } from "./actionTypes";
+import { ADD_TO_CART, CHANGE_QUANTITY, REMOVE_ITEM, CLEAR_CART } from "./actionTypes";
 
 const INITIAL_STATE = {
     // Make sure `items` is always initialized as an array
@@ -76,6 +76,12 @@ function rootReducer(state = INITIAL_STATE, action) {
                 ...state,
                 items: updatedRemoveItems
             };
+        case CLEAR_CART:
+            sessionStorage.setItem("cartItems", JSON.stringify([]));
+            return {
+                ...state,
+                items: [],
+            }
         default:
             return state;
     }
