@@ -101,14 +101,14 @@ const CustomNavbar = ({ setShow, show, setShowAlert }) => {
                                                             <p className='item-name'>{item.name}</p>
                                                         </Nav.Link>
                                                     </Nav>
-                                                    <FontAwesomeIcon icon={faTrashCan} onClick={() => handleRemoveItem(item)} className='remove-btn' />
+                                                    <FontAwesomeIcon icon={faTrashCan} onClick={() => handleRemoveItem(item)} className='remove-btn' data-testid={`trash-${item.id}`} />
 
                                                     <p className='price'>${item.price}</p>
                                                 </div>
                                                 <div className='item-qty-box'>
-                                                    <FontAwesomeIcon icon={faCircleMinus} onClick={() => handleQtyChange(item, 'decrement')} className='decrement-btn' />
-                                                    <p>&nbsp; {item.quantity} &nbsp;</p>
-                                                    <FontAwesomeIcon icon={faCirclePlus} onClick={() => handleQtyChange(item, 'increment')} className='increment-btn' />
+                                                    <FontAwesomeIcon icon={faCircleMinus} onClick={() => handleQtyChange(item, 'decrement')} className='decrement-btn' data-testid={`decrement-button-${item.id}`} />
+                                                    <p data-testid={`quantity-${item.id}`}>&nbsp; {item.quantity} &nbsp;</p>
+                                                    <FontAwesomeIcon icon={faCirclePlus} onClick={() => handleQtyChange(item, 'increment')} className='increment-btn' data-testid={`increment-button-${item.id}`} />
                                                 </div>
                                             </div>
                                         </ListGroup.Item>
@@ -139,7 +139,7 @@ const CustomNavbar = ({ setShow, show, setShowAlert }) => {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={() => setShowModal(false)}>Cancel</Button>
-                        <Button variant="danger" onClick={confirmRemoveItem}>Remove</Button>
+                        <Button variant="danger" onClick={confirmRemoveItem} data-testid='remove-1'>Remove</Button>
                     </Modal.Footer>
                 </Modal>
 
