@@ -25,19 +25,22 @@
    git clone https://github.com/xjohnsondev/PopVault.git
 
 2.	Navigate to the project directory:
+    ```bash
     cd PopVault
 
 3. Install the dependencies:
+    ```bash
     npm install
 
 4. Run the development server:
+    ```bash
     npm start
 
 ## Testing
 
 Run the test suite to ensure all functionalities work as expected:
-
-npm test
+    ```bash
+    npm test
 
 ## Future Enhancements
 
