@@ -38,7 +38,7 @@
 
 ## Testing
 
-Run the test suite to ensure all functionalities work as expected:
+1. Run the test suite to ensure all functionalities work as expected:
     ```bash
     npm test
 
