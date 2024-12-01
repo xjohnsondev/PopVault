@@ -2,6 +2,8 @@
 
 **PopVault** is an e-commerce platform dedicated to Funko Pop enthusiasts. It offers a seamless shopping experience for Funko Pop collectors, featuring an intuitive cart system, dynamic quantity management, and secure checkout capabilities.
 
+![PopVault Screenshot](public/assets/screenshot.png)
+
 ## Features
 
 - **Dynamic Cart Management**: Add, update, and remove items in your cart with ease.
