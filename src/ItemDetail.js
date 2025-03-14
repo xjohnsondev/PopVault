@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './ItemDetail.css';
-import {Container, Carousel, Row, Col} from 'react-bootstrap';
+import { Container, Carousel, Row, Col } from 'react-bootstrap';
 import { faShoppingBag, faLock } from '@fortawesome/free-solid-svg-icons';
 import data from './data.json';
 import { useParams } from 'react-router-dom';
@@ -16,7 +16,7 @@ const ItemDetail = ({ setShow, show, setShowAlert }) => {
     const dispatch = useDispatch();
 
     const item = data[id];
-  
+
 
     useEffect(() => {
         // Checks if item is already in cart
@@ -58,7 +58,7 @@ const ItemDetail = ({ setShow, show, setShowAlert }) => {
                 <Row>
                     <Col>
                         <p className='detail-description'>{item.description.toUpperCase()}</p>
-                        <p className='detail-price'>${item.price}</p>
+                        <p className='detail-price' data-testid={`item-price-${item.id}`}>${item.price}</p>
                         <p>Rating: {item.rating}</p>
                     </Col>
                 </Row>

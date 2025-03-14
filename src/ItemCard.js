@@ -17,7 +17,7 @@ export const ItemCard = ({ item }) => {
                     <p className='item-title'>{item.name}</p>
                 </Card.Body>
                 <Card.Body>
-                    <p className='item-price'>${item.price}</p>
+                    <p className='item-price' data-testid={`item-price-${item.id}`}>${item.price}</p>
                 </Card.Body>
             </Card>
     );
